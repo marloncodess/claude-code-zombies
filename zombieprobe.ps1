@@ -36,7 +36,7 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $Version = '1.0.0'
-$RepoUrl = 'https://github.com/marlondiebold123/claude-code-zombies'
+$RepoUrl = 'https://github.com/marloncodess/claude-code-zombies'
 $ScriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { (Get-Location).Path }
 if (-not $StateDir) { $StateDir = Join-Path $env:ProgramData 'zombieprobe' }
 $HuntState = Join-Path $StateDir 'hunt-state.json'
