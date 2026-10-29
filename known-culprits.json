@@ -1,0 +1,15 @@
+{
+  "_comment": "Drivers confirmed to keep exited processes in kernel memory. Add yours via a pull request or an issue (zombieprobe.ps1 report). 'versions' = file versions where the leak was confirmed.",
+  "culprits": [
+    {
+      "driver": "amdkmdag.sys",
+      "vendor": "AMD",
+      "device": "AMD Radeon(TM) Graphics (Ryzen integrated GPU, not driving a monitor)",
+      "versions": ["31.0.24002.92"],
+      "os": ["Windows 10 22H2 build 19045.6693"],
+      "evidence": "probe 50/50 zombies; device disabled at runtime -> 0/50; zombie count flat afterwards (was +575/min); stable for 2 weeks after the fix",
+      "fix": "Disable the unused iGPU in Device Manager (or in BIOS), or update the AMD graphics driver and re-run the test.",
+      "reported": "2026-10-16"
+    }
+  ]
+}
