@@ -3,7 +3,9 @@
 **Is your RAM filling up while Claude Code (or Cursor, Codex, any coding agent) runs on Windows, and Task Manager shows no process using it?**
 You may have a driver that keeps every exited process in kernel memory. This repo has a 30-second test and the tools to find the driver.
 
-![RAM keeps filling up, but no process is using it](assets/leak.gif)
+![Task Manager: RAM 95 % full, biggest process 819 MB](assets/taskmanager.gif)
+
+*Real recording from my PC: 147,800 short processes, the kind coding agents start all day. RAM went from 33 % to 97 % in under 5 minutes, and no process owns the memory.*
 
 ## The 30-second test
 
@@ -31,6 +33,8 @@ Every process that ends should disappear from kernel memory once nobody holds a 
 - **RAMMap** shows it as growing *Page Table* memory.
 
 On a normal PC this leak is small. **Coding agents make it 100× worse.** Every tool call starts a whole chain of short-lived processes: the shell, `conhost`, `git`, plus every hook you have configured. On my PC that was **275–575 process starts per minute** while agents were working, about **1–2 GB of RAM lost per hour**. My 32 GB machine was full after 2–3 hours.
+
+![RAM keeps filling up, but no process is using it](assets/leak.gif)
 
 ## How I found the cause
 
