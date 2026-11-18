@@ -8,7 +8,7 @@
       "versions": ["31.0.24002.92"],
       "os": ["Windows 10 22H2 build 19045.6693"],
       "evidence": "probe 50/50 zombies; device disabled at runtime -> 0/50; zombie count flat afterwards (was +575/min); stable for 2 weeks after the fix",
-      "fix": "Disable the unused iGPU in Device Manager (or in BIOS), or update the AMD graphics driver and re-run the test.",
+      "fix": "Disable the unused iGPU in the BIOS (Integrated Graphics: Disabled). Disabling it in Device Manager works at once, but Windows Update can enable it again: on 2026-11-18 it was back, with 200,875 zombies after 3 h uptime.",
       "reported": "2026-10-16"
     }
   ]
